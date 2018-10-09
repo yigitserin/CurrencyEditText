@@ -88,6 +88,11 @@ public class CurrencyEditText extends AppCompatEditText {
                 return;
             }
 
+            // If only decimal separator is inputted, add a zero to the left of it
+            if (text.equals(String.valueOf(DECIMAL_SEPARATOR))) {
+                text = '0' + text;
+            }
+
             setTextInternal(format(text));
             setSelection(getText().length());
             handleNumericValueChanged();
