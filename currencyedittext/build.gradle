@@ -1,4 +1,21 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+
+    def groupProjectID = 'com.yigitserin.currencyedittext'
+    def artifactProjectID = 'CurrencyEditText'
+    def publishVersionID = '0.1'
+
+    userOrg = 'yigitserin'
+    repoName = 'CurrencyEditText'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'EditText input for currency values.'
+    website = 'https://github.com/yigitserin/CurrencyEditText'
+
+}
 
 android {
     compileSdkVersion 28
