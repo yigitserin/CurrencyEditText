@@ -191,36 +191,29 @@ public class CurrencyEditText extends AppCompatEditText {
     }
 
     private String format(final String original) {
-        //Dot is special character in regex, so we have to treat it specially.
-        if (DECIMAL_SEPARATOR == '.'){
-            final String[] parts = original.split("\\.", -1);
-            String number = parts[0].replaceAll(mNumberFilterRegex, "").replaceFirst(LEADING_ZERO_FILTER_REGEX, "");
+        String[] parts = splitOriginalText(original);
+        String number = parts[0].replaceAll(mNumberFilterRegex, "").replaceFirst(LEADING_ZERO_FILTER_REGEX, "");
 
-            number = reverse(reverse(number).replaceAll("(.{3})", "$1" + GROUPING_SEPARATOR));
-            number = removeStart(number, String.valueOf(GROUPING_SEPARATOR));
+        number = reverse(reverse(number).replaceAll("(.{3})", "$1" + GROUPING_SEPARATOR));
+        number = removeStart(number, String.valueOf(GROUPING_SEPARATOR));
 
-            if (parts.length > 1) {
-                parts[1] = parts[1].replaceAll(mNumberFilterRegex,"");
-                number += DECIMAL_SEPARATOR + parts[1];
-            }
-
-            return number;
-        }else{
-            final String[] parts = original.split(DECIMAL_SEPARATOR+"", -1);
-            String number = parts[0].replaceAll(mNumberFilterRegex, "").replaceFirst(LEADING_ZERO_FILTER_REGEX, "");
-
-            number = reverse(reverse(number).replaceAll("(.{3})", "$1" + GROUPING_SEPARATOR));
-            number = removeStart(number, String.valueOf(GROUPING_SEPARATOR));
-
-            if (parts.length > 1) {
-                parts[1] = parts[1].replaceAll(mNumberFilterRegex,"");
-                number += DECIMAL_SEPARATOR + parts[1];
-            }
-
-            return number;
+        if (parts.length > 1) {
+            parts[1] = parts[1].replaceAll(mNumberFilterRegex, "");
+            number += DECIMAL_SEPARATOR + parts[1];
         }
 
+        return number;
+    }
 
+    private String[] splitOriginalText(String original) {
+        //Dot is special character in regex, so we have to treat it specially.
+        final String[] parts;
+        if (DECIMAL_SEPARATOR == '.') {
+            parts = original.split("\\.", -1);
+        } else {
+            parts = original.split(DECIMAL_SEPARATOR + "", -1);
+        }
+        return parts;
     }
 
     private void setTextInternal(String text) {
