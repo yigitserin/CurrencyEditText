@@ -5,14 +5,24 @@
 CurrencyEditText is an EditText library for inputting currency values. It supports grouping and decimal seperators.
 
   ##### Step 1. Add the dependency
- 	dependencies {
-	        implementation 'com.yigitserin.currencyedittext:CurrencyEditText:0.1'
-	}
+  
+  ```gradle
+repositories {
+  	mavenCentral()
+  	google()
+}
+
+dependencies {
+  	implementation 'com.yigitserin.currencyedittext:CurrencyEditText:0.1'
+}
+```
   
   ##### Step 2. Configure
+  ```java
     CurrencyEditText etCurrency = findViewById(R.id.etCurrency);
     etCurrency.setLocale(new Locale("tr","TR"));
     etCurrency.setDecimalDigits(2);
+   ```
   
   ##### Step 3. Enjoy
   
