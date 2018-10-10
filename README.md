@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-  	implementation 'com.yigitserin.currencyedittext:CurrencyEditText:0.2'
+  	implementation 'com.yigitserin.currencyedittext:CurrencyEditText:0.3'
 }
 ```
   
