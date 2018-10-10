@@ -1,4 +1,4 @@
-# CurrencyEditText
+# CurrencyEditText [ ![Download](https://api.bintray.com/packages/yigitserin/CurrencyEditText/CurrencyEditText/images/download.svg) ](https://bintray.com/yigitserin/CurrencyEditText/CurrencyEditText/_latestVersion)
 
 <img src="https://raw.githubusercontent.com/yigitserin/CurrencyEditText/master/Preview.gif" width="240" height="480" />
 
