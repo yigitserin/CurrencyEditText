@@ -288,7 +288,7 @@ public class CurrencyEditText extends AppCompatEditText {
             }else{
                 //If decimal seperator is not a dot, we can safely split.
                 String[] parts = text.split(DECIMAL_SEPARATOR+"");
-                if (parts.length>0){
+                if (parts.length>1){
                     String lastPart = parts[parts.length-1];
 
                     if (lastPart.length() == decimalDigits + 1){
